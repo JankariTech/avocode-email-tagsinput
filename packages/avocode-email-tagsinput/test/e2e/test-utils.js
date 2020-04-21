@@ -1,5 +1,3 @@
-import { expect } from 'chai'
-
 const tagsInputFieldSelector = '.tagsinput'
 const tagSubmitKeys = [ 'Comma', 'Enter', 'Space' ]
 const URL = isDevelopment
@@ -53,25 +51,11 @@ const addEmailTag = async (page, emailTag, submitKey = 'Comma') => {
   }
 }
 
-const assertEmailTagCount = async function (page, expectedCount) {
-  const tagNodes = await getTagNodes(page)
-  expect(tagNodes).to.have.length(expectedCount)
-}
-
-const assertInputText = async function (page, expectedText) {
-  const text = await getInputText(page)
-  expect(text).to.equal(expectedText)
-}
-
 export {
   URL,
-  tagSubmitKeys,
   tagsInputFieldSelector,
   addEmailTag,
   getTagNodes,
   getInputText,
-  assertInputText,
   getAnchorAndFocus,
-  assertEmailTagCount,
 }
-
